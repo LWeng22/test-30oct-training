@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Adjacency Scorer – Facility Layout Lab</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="../js/theme.js"></script>
+  <script src="../js/adjacency.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <p class="site-title"><a href="../index.html">Facility Layout Lab</a></p>
+    <button id="theme-toggle" type="button" aria-pressed="false">Switch to dark theme</button>
+  </header>
+
+  <main>
+    <h1>Adjacency scorer</h1>
+    <p class="lead">
+      Decide how close each pair of departments should be, place the departments on a grid,
+      and see how well your layout follows those wishes.
+    </p>
+
+    <details class="help" open>
+      <summary>How it works</summary>
+      <p>
+        <strong>Adjacent</strong> means two departments share a side on the grid. Corners touching does not count.
+        Each pair of departments gets a <strong>closeness rating</strong>:
+      </p>
+      <ul id="legend"></ul>
+      <p>
+        <strong>Example:</strong> Receiving and Storage are rated A, Storage and Assembly are rated E, and
+        Receiving and Assembly are rated X. Placing them in a row as Receiving, Storage, Assembly scores
+        1000 + 100 = 1100. Moving Assembly next to Receiving would instead lose 1000 points.
+      </p>
+    </details>
+
+    <section aria-labelledby="step1">
+      <h2 id="step1">1. Departments</h2>
+      <ul id="department-list" class="department-list"></ul>
+      <button id="add-department" type="button">Add department</button>
+    </section>
+
+    <section aria-labelledby="step2">
+      <h2 id="step2">2. Closeness ratings</h2>
+      <div id="rating-list" class="rating-list"></div>
+    </section>
+
+    <section aria-labelledby="step3">
+      <h2 id="step3">3. Arrange the layout</h2>
+      <p id="grid-hint" class="lead" aria-live="polite"></p>
+      <div id="tray" class="tray"></div>
+      <div id="grid" class="grid" role="group" aria-label="Layout grid"></div>
+      <p class="actions">
+        <button id="remove-selected" type="button">Take selected off the grid</button>
+        <button id="clear-grid" type="button">Clear grid</button>
+      </p>
+    </section>
+
+    <section aria-labelledby="step4">
+      <h2 id="step4">Score</h2>
+      <p class="score" aria-live="polite">Total: <strong id="total">0</strong></p>
+      <p id="unplaced-note" class="lead"></p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Pair</th><th>Rating</th><th>Result</th><th>Points</th></tr>
+          </thead>
+          <tbody id="breakdown"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

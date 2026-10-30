@@ -5,11 +5,15 @@
 - No frameworks and no build step: files open directly in a browser.
 
 ## Project Structure
-The repository is nearly empty for now:
 - `README.md` – basic repository readme
 - `CLAUDE.md` – this file
+- `index.html` – portal home page
+- `tools/adjacency.html` – the adjacency scorer tool
+- `css/style.css` – shared styles and light/dark theme colours
+- `js/theme.js` – theme toggle
+- `js/adjacency.js` – adjacency scorer logic
 
-Add new pages (`.html`), styles (`.css`) and scripts (`.js`) at the top level or in clearly named folders, and update this section as files are added.
+Add new pages (`.html`), styles (`.css`) and scripts (`.js`) in these folders, and update this section as files are added.
 
 ## Key Requirements
 1. Every page must be responsive and work on desktop, tablet and phone.
