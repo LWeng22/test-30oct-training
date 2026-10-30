@@ -1,22 +1,28 @@
-/* Light theme is the default. Dark values apply only when data-theme="dark". */
+/* Design direction: "Workshop" (see CLAUDE.md). Light theme is the default;
+   dark values apply only when data-theme="dark". */
 :root {
-  --bg: #ffffff;
-  --surface: #f3f5f8;
-  --text: #1a2230;
-  --text-muted: #4a5568;
-  --border: #c9d1dc;
-  --accent: #1f5fbf;
+  --bg: #faf6ef;
+  --surface: #ffffff;
+  --text: #2b2a28;
+  --text-muted: #5c5750;
+  --border: #2b2a28;
+  --border-soft: #d8cfbf;
+  --accent: #c2410c;
   --accent-text: #ffffff;
+
+  --font-heading: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 :root[data-theme="dark"] {
-  --bg: #12161c;
-  --surface: #1c222b;
-  --text: #eef1f5;
-  --text-muted: #b4bdca;
-  --border: #384250;
-  --accent: #7fb2ff;
-  --accent-text: #0b1220;
+  --bg: #1d1b19;
+  --surface: #292623;
+  --text: #f3eee6;
+  --text-muted: #c2b9ab;
+  --border: #f3eee6;
+  --border-soft: #4a4540;
+  --accent: #ff8a4c;
+  --accent-text: #1d1b19;
 }
 
 * {
@@ -27,22 +33,29 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  line-height: 1.6;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.55;
 }
 
 .site-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--border);
+  gap: 0.5rem 1rem;
+  padding: 0.625rem 1rem;
+  border-top: 6px solid var(--accent);
+  border-bottom: 2px solid var(--border);
 }
 
 .site-title {
   margin: 0;
-  font-size: 1.125rem;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .site-title a {
@@ -51,14 +64,29 @@ body {
 }
 
 main {
-  max-width: 60rem;
+  max-width: 65rem;
   margin: 0 auto;
-  padding: 1.5rem 1rem 3rem;
+  padding: 2rem 1rem 2.5rem;
+}
+
+h1,
+h2 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
 }
 
 h1 {
+  margin: 0 0 1rem;
+  font-size: 2.75rem;
+  line-height: 1;
+}
+
+h2 {
+  margin: 0 0 0.5rem;
   font-size: 1.75rem;
-  line-height: 1.25;
+  line-height: 1.05;
 }
 
 .lead {
@@ -72,11 +100,13 @@ a {
 
 button,
 .button {
+  min-height: 2.75rem;
   font: inherit;
-  padding: 0.5rem 0.9rem;
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  background: var(--surface);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 0;
+  background: var(--bg);
   color: var(--text);
   cursor: pointer;
 }
@@ -90,28 +120,28 @@ button,
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
 }
 
 .card {
   display: block;
-  padding: 1.25rem;
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
+  padding: 1.5rem;
+  border: 2px solid var(--border);
+  border-radius: 0;
   background: var(--surface);
   color: inherit;
   text-decoration: none;
 }
 
 .card:hover {
-  border-color: var(--accent);
+  box-shadow: 6px 6px 0 var(--accent);
 }
 
 .card h2 {
-  margin: 0 0 0.25rem;
-  font-size: 1.25rem;
-  color: var(--accent);
+  margin: 0 0 0.5rem;
+  font-size: 1.875rem;
+  color: var(--text);
 }
 
 .card p {
@@ -121,15 +151,15 @@ button,
 
 @media (min-width: 40rem) {
   .site-header {
-    padding: 1rem 2rem;
+    padding: 0.625rem 3rem;
   }
 
   main {
-    padding: 2.5rem 2rem 4rem;
+    padding: 3.5rem 3rem 4rem;
   }
 
   h1 {
-    font-size: 2.25rem;
+    font-size: 3.75rem;
   }
 
   .card-grid {
@@ -142,16 +172,10 @@ section {
   margin-top: 2rem;
 }
 
-h2 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
 .help {
   margin-top: 1.5rem;
   padding: 0.75rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
+  border: 2px solid var(--border);
   background: var(--surface);
 }
 
@@ -162,11 +186,12 @@ h2 {
 
 input[type="text"],
 select {
+  min-height: 2.75rem;
   font: inherit;
-  padding: 0.5rem 0.6rem;
-  border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  background: var(--bg);
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--border);
+  border-radius: 0;
+  background: var(--surface);
   color: var(--text);
   max-width: 100%;
 }
@@ -206,6 +231,10 @@ button:disabled {
   gap: 0.25rem;
 }
 
+.rating-row label {
+  font-weight: 600;
+}
+
 .tray {
   display: flex;
   flex-wrap: wrap;
@@ -216,7 +245,7 @@ button:disabled {
 .chip[aria-pressed="true"] {
   background: var(--accent);
   color: var(--accent-text);
-  border-color: var(--accent);
+  border-color: var(--border);
 }
 
 .chip.placed {
@@ -232,18 +261,17 @@ button:disabled {
 .cell {
   min-height: 3.5rem;
   padding: 0.15rem;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   line-height: 1.2;
   overflow: hidden;
   overflow-wrap: anywhere;
-  background: var(--bg);
+  background: var(--surface);
 }
 
 .cell.occupied {
   background: var(--accent);
   color: var(--accent-text);
-  border-color: var(--accent);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .cell.selected {
@@ -262,6 +290,11 @@ button:disabled {
   margin: 0.5rem 0;
 }
 
+.score strong {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+}
+
 .table-wrap {
   overflow-x: auto;
 }
@@ -275,7 +308,15 @@ th,
 td {
   text-align: left;
   padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+th {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--border);
 }
 
 @media (min-width: 40rem) {
@@ -284,7 +325,7 @@ td {
   }
 
   .cell {
-    font-size: 0.875rem;
+    font-size: 0.9375rem;
   }
 }
 
@@ -296,5 +337,12 @@ td {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
+}
+
+.site-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  font-weight: 600;
 }
