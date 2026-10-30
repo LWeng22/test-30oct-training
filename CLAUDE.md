@@ -11,9 +11,16 @@
 - `tools/adjacency.html` – the adjacency scorer tool
 - `css/style.css` – shared styles and light/dark theme colours
 - `js/theme.js` – theme toggle
+- `js/portal.js` – opens and closes tool panels using the page address (`#tool-1`)
 - `js/adjacency.js` – adjacency scorer logic
 
 Add new pages (`.html`), styles (`.css`) and scripts (`.js`) in these folders, and update this section as files are added.
+
+## Feature Plan
+Phase 1 is the portal plus exactly one tool.
+- [x] Portal in `index.html` with navigation and a placeholder card ("Tool 1 – coming soon") that opens and closes.
+- [x] First tool: adjacency scorer (`tools/adjacency.html`).
+- [ ] Choose the visual design (styling is simple and neutral until then).
 
 ## Key Requirements
 1. Every page must be responsive and work on desktop, tablet and phone.

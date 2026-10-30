@@ -6,29 +6,45 @@
   <title>Facility Layout Lab</title>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/theme.js"></script>
+  <script src="js/portal.js" defer></script>
 </head>
 <body>
   <header class="site-header">
     <p class="site-title"><a href="index.html">Facility Layout Lab</a></p>
-    <button id="theme-toggle" type="button" aria-pressed="false">Switch to dark theme</button>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#">Home</a>
+      <button id="theme-toggle" type="button" aria-pressed="false">Switch to dark theme</button>
+    </nav>
   </header>
 
   <main>
-    <h1>Try small tools for facility layout planning</h1>
-    <p class="lead">
-      Facility layout is about deciding where departments, machines and work areas
-      go inside a building. These short tools let you try the ideas yourself.
-    </p>
+    <div id="home">
+      <h1>Try small tools for facility layout planning</h1>
+      <p class="lead">
+        Facility layout is about deciding where departments, machines and work areas
+        go inside a building. These short tools let you try the ideas yourself.
+      </p>
 
-    <div class="card-grid">
-      <a class="card" href="tools/adjacency.html">
-        <h2>Adjacency scorer</h2>
-        <p>
-          Rate how close pairs of departments should be, arrange them on a grid,
-          and see how well your layout scores.
-        </p>
-      </a>
+      <div class="card-grid">
+        <a class="card" href="tools/adjacency.html">
+          <h2>Adjacency scorer</h2>
+          <p>
+            Rate how close pairs of departments should be, arrange them on a grid,
+            and see how well your layout scores.
+          </p>
+        </a>
+        <a class="card" href="#tool-1">
+          <h2>Tool 1 – coming soon</h2>
+          <p>A placeholder that shows how tools open and close in the portal.</p>
+        </a>
+      </div>
     </div>
+
+    <section id="tool-1" data-tool-panel hidden>
+      <h1>Tool 1 – coming soon</h1>
+      <p class="lead">This tool isn't built yet.</p>
+      <p><a href="#">Back to all tools</a></p>
+    </section>
   </main>
 </body>
 </html>

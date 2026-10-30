@@ -287,3 +287,14 @@ td {
     font-size: 0.875rem;
   }
 }
+
+/* Portal navigation, and keep the hidden attribute working on styled elements */
+[hidden] {
+  display: none !important;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
